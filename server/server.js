@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const router = require("./src/routes");
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/", router);
+app.use("/uploads", express.static("uploads"));
 
 const PORT = process.env.PORT || 8080;
 

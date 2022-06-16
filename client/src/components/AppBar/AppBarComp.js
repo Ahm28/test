@@ -21,8 +21,10 @@ import { UserContext } from "../../context/userContext";
 import { Link, useNavigate } from "react-router-dom";
 import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = [
+  { name: "Products", path: "/product" },
+  { name: "Blog", path: "/" },
+];
 
 const style = {
   position: "absolute",
@@ -259,8 +261,13 @@ const AppBarComp = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <Typography
+                    textAlign="center"
+                    onClick={() => navigate(`${page.path}`)}
+                  >
+                    {page.name}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -289,11 +296,11 @@ const AppBarComp = () => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.name}
+                onClick={() => navigate(`${page.path}`)}
                 sx={{ my: 2, color: "#0c090f", display: "block" }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>

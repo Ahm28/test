@@ -72,8 +72,6 @@ export default function Login() {
         email: "",
         password: "",
       });
-
-      navigate("/resume");
     } catch (error) {
       const alert = (
         <Alert severity="error">Email and Password not Match</Alert>

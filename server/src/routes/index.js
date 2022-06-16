@@ -57,7 +57,7 @@ router.post("/login", login);
 router.get("/products", getProduct);
 router.post("/product", auth, uploadsFileImage("image"), addproduct);
 router.patch("/product/:id", auth, uploadsFileImage("image"), updateProduct);
-router.get("/product/:id", auth, getProductById);
+router.get("/product/:id", getProductById);
 router.delete("/product/:id", auth, deleteProducts);
 
 router.post("/category", addCategory);

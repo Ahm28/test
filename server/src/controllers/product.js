@@ -5,6 +5,8 @@ exports.addproduct = async (req, res) => {
     let { categoryId } = req.body;
     categoryId = categoryId.split(",");
 
+    console.log(categoryId);
+
     const data = {
       name: req.body.name,
       desc: req.body.desc,
@@ -71,7 +73,7 @@ exports.addproduct = async (req, res) => {
 
 exports.getProduct = async (req, res) => {
   try {
-    const data = await product.findAll({
+    let data = await product.findAll({
       include: [
         {
           model: user,
@@ -96,6 +98,12 @@ exports.getProduct = async (req, res) => {
       attributes: {
         exclude: ["createdAt", "updatedAt", "idUser"],
       },
+    });
+
+    data = JSON.parse(JSON.stringify(data));
+
+    data = data.map((item) => {
+      return { ...item, image: process.env.PATH_FILE + item.image };
     });
 
     res.send({
