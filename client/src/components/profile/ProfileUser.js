@@ -38,8 +38,6 @@ export default function ProfileUser() {
     getUser();
   }, []);
 
-  console.log(user);
-
   return (
     <Grid item xs={7}>
       <Box>

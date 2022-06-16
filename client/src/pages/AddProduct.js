@@ -61,8 +61,6 @@ export default function AddProduct() {
     const id = e.target.value;
     const checked = e.target.checked;
 
-    console.log(id);
-
     if (checked == true) {
       setCategoryId([...categoryId, parseInt(id)]);
     } else {
@@ -98,9 +96,6 @@ export default function AddProduct() {
     }
   };
 
-  console.log(categories);
-
-  console.log(form);
   return (
     <>
       <AppBarComp />

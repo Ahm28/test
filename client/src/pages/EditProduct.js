@@ -41,7 +41,6 @@ export default function EditProduct() {
   const getProducts = async (id) => {
     try {
       const response = await API.get(`/product/${id}`);
-      console.log(response);
       setPreview(response.data.data.image);
       setForm({
         ...form,

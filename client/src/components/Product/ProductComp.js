@@ -13,7 +13,6 @@ export default function ProductComp() {
   const getProducts = async () => {
     try {
       const response = await API.get("/products");
-      console.log(response);
       setProducts(response.data.data);
     } catch (error) {
       console.log(error);
