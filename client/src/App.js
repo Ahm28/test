@@ -6,6 +6,7 @@ import Product from "./pages/Product";
 import AddProduct from "./pages/AddProduct";
 import AddCategory from "./pages/AddCategory";
 import ProductDetail from "./pages/ProductDetail";
+import EditProduct from "./pages/EditProduct";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/product/:id" element={<ProductDetail />} />
       <Route path="/add-product" element={<AddProduct />} />
       <Route path="/add-category" element={<AddCategory />} />
+      <Route path="/edit-product/:id" element={<EditProduct />} />
     </Routes>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardContent, Container, Typography, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { API } from "../../config/api";
 
 export default function ProductComp() {
@@ -63,29 +63,34 @@ export default function ProductComp() {
             {products
               ? products.map((product) => (
                   <Grid item xs={4}>
-                    <Box
-                      sx={{
-                        width: "300px",
-                        boxShadow: "10px 10px 32px 0px rgba(0,0,0,0.36)",
-                      }}
+                    <Link
+                      to={`/product/${product.id}`}
+                      style={{ textDecoration: "none", color: "black" }}
                     >
-                      <img
-                        src={product.image}
-                        alt="product pict"
-                        width="300px"
-                      />
-                      <Box sx={{ p: 4 }}>
-                        <Typography variant="h6" sx={{ mb: 2 }}>
-                          {product.name}
-                        </Typography>
-                        <hr />
-                        <Typography sx={{ mt: 2 }}>
-                          {product.categories.map(
-                            (category) => category.name + " "
-                          )}
-                        </Typography>
+                      <Box
+                        sx={{
+                          width: "300px",
+                          boxShadow: "10px 10px 32px 0px rgba(0,0,0,0.36)",
+                        }}
+                      >
+                        <img
+                          src={product.image}
+                          alt="product pict"
+                          width="300px"
+                        />
+                        <Box sx={{ p: 4 }}>
+                          <Typography variant="h6" sx={{ mb: 2 }}>
+                            {product.name}
+                          </Typography>
+                          <hr />
+                          <Typography sx={{ mt: 2 }}>
+                            {product.categories.map(
+                              (category) => category.name + " "
+                            )}
+                          </Typography>
+                        </Box>
                       </Box>
-                    </Box>
+                    </Link>
                   </Grid>
                 ))
               : ""}
