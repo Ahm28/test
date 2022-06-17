@@ -9,10 +9,9 @@ import {
   InputLabel,
   Typography,
 } from "@mui/material";
-import React, { useContext, useState } from "react";
+import React from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { useNavigate } from "react-router-dom";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import EmailIcon from "@mui/icons-material/Email";
 import PasswordIcon from "@mui/icons-material/Password";
@@ -138,10 +137,8 @@ export default function Register() {
                 <IconButton
                   aria-label="toggle password visibility"
                   edge="end"
-                  aria-label="toggle password visibility"
                   onClick={handleClickShowPassword}
                   onMouseDown={handleMouseDownPassword}
-                  edge="end"
                 >
                   {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>

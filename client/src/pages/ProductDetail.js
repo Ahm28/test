@@ -1,9 +1,11 @@
 import {
   Backdrop,
+  Breadcrumbs,
   Button,
   Container,
   Fade,
   Grid,
+  Link,
   Modal,
   Typography,
 } from "@mui/material";
@@ -75,6 +77,29 @@ export default function ProductDetail() {
       <AppBarComp />
       <Box sx={{ my: 4 }}>
         <Container>
+          <div
+            role="presentation"
+            style={{ marginBottom: "20px", cursor: "pointer" }}
+          >
+            <Breadcrumbs aria-label="breadcrumb">
+              <Link
+                underline="hover"
+                color="inherit"
+                onClick={() => navigate("/")}
+              >
+                Home
+              </Link>
+              <Link
+                underline="hover"
+                color="inherit"
+                onClick={() => navigate("/product")}
+              >
+                Product
+              </Link>
+              <Typography color="text.primary">{product.name}</Typography>
+            </Breadcrumbs>
+          </div>
+
           <Box>
             <Typography variant="h3">{product.name}</Typography>
           </Box>
@@ -114,44 +139,51 @@ export default function ProductDetail() {
                   </Grid>
                 </Box>
 
-                <Box sx={{ mt: 5 }}>
-                  <Button
-                    variant="contained"
-                    color="success"
-                    sx={{
-                      width: "40%",
-                      height: "30px",
-                      borderRadius: "10px",
-                      color: "white",
-                      mr: 2,
-                    }}
-                    onClick={() => navigate(`/edit-product/${product.id}`)}
-                  >
-                    <BorderColorOutlinedIcon sx={{ fontSize: "16px", mr: 1 }} />
-                    Edit Product
-                  </Button>
-                  <Button
-                    variant="contained"
-                    color="error"
-                    sx={{
-                      width: "40%",
-                      height: "30px",
-                      borderRadius: "10px",
-                      color: "white",
-                    }}
-                    onClick={() => handleDelete(product.id)}
-                  >
-                    <DeleteOutlineOutlinedIcon
-                      sx={{ fontSize: "16px", mr: 1 }}
-                    />
-                    Delete Product
-                  </Button>
-                </Box>
+                {localStorage.token ? (
+                  <Box sx={{ mt: 5 }}>
+                    <Button
+                      variant="contained"
+                      color="success"
+                      sx={{
+                        width: "40%",
+                        height: "30px",
+                        borderRadius: "10px",
+                        color: "white",
+                        mr: 2,
+                      }}
+                      onClick={() => navigate(`/edit-product/${product.id}`)}
+                    >
+                      <BorderColorOutlinedIcon
+                        sx={{ fontSize: "16px", mr: 1 }}
+                      />
+                      Edit Product
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="error"
+                      sx={{
+                        width: "40%",
+                        height: "30px",
+                        borderRadius: "10px",
+                        color: "white",
+                      }}
+                      onClick={() => handleDelete(product.id)}
+                    >
+                      <DeleteOutlineOutlinedIcon
+                        sx={{ fontSize: "16px", mr: 1 }}
+                      />
+                      Delete Product
+                    </Button>
+                  </Box>
+                ) : (
+                  " "
+                )}
               </Grid>
             </Grid>
           </Box>
         </Container>
       </Box>
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

@@ -24,8 +24,6 @@ export default function EditProfile() {
     dateOfBirthDay: null,
   });
 
-  console.log(formProfile);
-
   const { name, address, dateOfBirthDay } = formProfile;
 
   const getUser = async () => {

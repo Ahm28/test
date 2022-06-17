@@ -18,7 +18,7 @@ import Register from "../modal/Register";
 import { setAuthToken } from "../../config/api";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import { UserContext } from "../../context/userContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
 
 const pages = [

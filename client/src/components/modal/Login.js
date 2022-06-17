@@ -72,6 +72,7 @@ export default function Login() {
         email: "",
         password: "",
       });
+      navigate("/product");
     } catch (error) {
       const alert = (
         <Alert severity="error">Email and Password not Match</Alert>
@@ -84,8 +85,6 @@ export default function Login() {
       console.log(error);
     }
   };
-
-  console.log(state);
 
   return (
     <Box>
@@ -127,12 +126,10 @@ export default function Login() {
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
-                  aria-label="toggle password visibility"
                   edge="end"
                   aria-label="toggle password visibility"
                   onClick={handleClickShowPassword}
                   onMouseDown={handleMouseDownPassword}
-                  edge="end"
                 >
                   {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>

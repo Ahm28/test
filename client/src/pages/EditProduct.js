@@ -1,16 +1,10 @@
 import {
   Box,
   Button,
-  Checkbox,
   Container,
   FormControl,
-  FormControlLabel,
   FormGroup,
-  IconButton,
-  Input,
-  InputAdornment,
   InputLabel,
-  MenuItem,
   TextField,
   Typography,
 } from "@mui/material";
@@ -48,6 +42,7 @@ export default function EditProduct() {
         price: response.data.data.price,
         qty: response.data.data.qty,
         desc: response.data.data.desc,
+        image: response.data.data.image,
       });
       setProduct(response.data.data);
     } catch (error) {

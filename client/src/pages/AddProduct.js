@@ -1,16 +1,14 @@
 import {
   Box,
+  Breadcrumbs,
   Button,
   Checkbox,
   Container,
   FormControl,
   FormControlLabel,
   FormGroup,
-  IconButton,
-  Input,
-  InputAdornment,
   InputLabel,
-  MenuItem,
+  Link,
   TextField,
   Typography,
 } from "@mui/material";
@@ -101,6 +99,29 @@ export default function AddProduct() {
       <AppBarComp />
       <Box sx={{ my: 2 }}>
         <Container>
+          <div
+            role="presentation"
+            style={{ marginBottom: "20px", cursor: "pointer" }}
+          >
+            <Breadcrumbs aria-label="breadcrumb">
+              <Link
+                underline="hover"
+                color="inherit"
+                onClick={() => navigate("/")}
+              >
+                Home
+              </Link>
+              <Link
+                underline="hover"
+                color="inherit"
+                onClick={() => navigate("/product")}
+              >
+                Product
+              </Link>
+              <Typography color="text.primary">Add Product</Typography>
+            </Breadcrumbs>
+          </div>
+
           <Box>
             <Typography variant="h4">Add Product</Typography>
           </Box>
@@ -122,7 +143,7 @@ export default function AddProduct() {
             <Box>
               <FormControl
                 variant="standard"
-                sx={{ width: "100%", mt: 2, mb: 4 }}
+                sx={{ width: "100%", mt: 1, mb: 4 }}
               >
                 <InputLabel
                   htmlFor="input-upload"
@@ -207,7 +228,7 @@ export default function AddProduct() {
                   }}
                   onClick={() => navigate("/add-category")}
                 >
-                  Add Product
+                  Add Category
                 </Button>
               </Box>
               {categories.map((category) => (

@@ -1,18 +1,11 @@
 import {
   Box,
+  Breadcrumbs,
   Button,
-  Checkbox,
   Container,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-  IconButton,
-  Input,
-  InputAdornment,
-  InputLabel,
-  MenuItem,
   TextField,
   Typography,
+  Link,
 } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -40,7 +33,7 @@ export default function AddCategory() {
 
       const body = JSON.stringify({ name: category });
 
-      const response = await API.post("/category", body, config);
+      await API.post("/category", body, config);
       navigate("/product");
     } catch (err) {
       console.log(err);
@@ -52,14 +45,43 @@ export default function AddCategory() {
       <AppBarComp />
       <Box sx={{ my: 2 }}>
         <Container>
+          <div
+            role="presentation"
+            style={{ marginBottom: "20px", cursor: "pointer" }}
+          >
+            <Breadcrumbs aria-label="breadcrumb">
+              <Link
+                underline="hover"
+                color="inherit"
+                onClick={() => navigate("/")}
+              >
+                Home
+              </Link>
+              <Link
+                underline="hover"
+                color="inherit"
+                onClick={() => navigate("/product")}
+              >
+                Product
+              </Link>
+              <Link
+                underline="hover"
+                color="inherit"
+                onClick={() => navigate("/add-product")}
+              >
+                Add Product
+              </Link>
+              <Typography color="text.primary">Add Category</Typography>
+            </Breadcrumbs>
+          </div>
           <Box>
-            <Typography variant="h4">Add Product</Typography>
+            <Typography variant="h4">Add Category</Typography>
           </Box>
 
           <Box component="form" onSubmit={handleSubmit}>
             <TextField
               id="outlined-basic"
-              label="Name Product"
+              label="Name Category"
               name="category"
               value={category}
               variant="outlined"
